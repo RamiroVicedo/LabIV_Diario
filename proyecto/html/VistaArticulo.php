@@ -42,7 +42,7 @@
 
 	<h1> <?= $a['nombre']?> </h1>
 	
-	<h3> <?= $a['id_categoria']?> </h3>
+	<h3> <?= $a['categoria']?> </h3>
 	
 	<h4> <?= $a['fecha']?> </h4>
 

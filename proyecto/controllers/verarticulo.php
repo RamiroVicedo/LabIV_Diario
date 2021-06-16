@@ -10,8 +10,6 @@ $id_articulo = 1;
 $a = new Articulos();
 $articulo = $a->getArticulo($id_articulo);
 
-//conseguir nombre categoria
-
 $v = new VistaArticulo();
 $v->art = $articulo;
 $v->render();

@@ -11,8 +11,11 @@ class Articulos extends Model {
 	} 
 
 	public function getArticulo($id_articulo){
-			$this->db->query("SELECT nombre, id_categoria, fecha, articulo
-								FROM articulos WHERE id_articulo=" . $id_articulo);
+			$this->db->query("SELECT a.nombre nombre, a.fecha, a.articulo, a.id_articulo, c.nombre categoria
+								FROM articulos a 
+								LEFT JOIN categorias c ON 
+										c.id_categoria = a.id_categoria
+								WHERE id_articulo=" . $id_articulo);
 			return $this->db->fetchAll();
 	}
 
