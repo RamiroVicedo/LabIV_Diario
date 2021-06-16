@@ -5,8 +5,10 @@
 class Articulos extends Model {
 
 	public function getTodos(){
-			$this->db->query("SELECT * 
-								FROM articulos");
+			$this->db->query("SELECT a.nombre nombre, a.fecha, a.articulo, a.id_articulo, c.nombre categoria
+								FROM articulos a 
+								LEFT JOIN categorias c ON 
+										c.id_categoria = a.id_categoria");
 			return $this->db->fetchAll();
 	} 
 
