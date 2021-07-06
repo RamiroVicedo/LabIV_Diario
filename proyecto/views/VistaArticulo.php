@@ -5,5 +5,6 @@
 class VistaArticulo extends View {
 
 	public $art;
+	public $com;
 
 }

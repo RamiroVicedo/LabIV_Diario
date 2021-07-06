@@ -6,7 +6,9 @@ require '../fw/fw.php';
 require '../models/Articulos.php';
 require '../views/VistaArticulosCat.php';
 
-$id_categoria = 7;
+session_start();
+
+$id_categoria = $_SESSION['categoria'];
 $a = new Articulos();
 $articulos = $a->getFromCategoria($id_categoria);
 

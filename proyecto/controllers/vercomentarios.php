@@ -6,8 +6,19 @@ require '../fw/fw.php';
 require '../models/Comentarios.php';
 require '../views/VistaComentarios.php';
 
-$id_articulo = 2;
+session_start();
+
+$id_articulo = $_SESSION['articulo'][0]["id_articulo"];
+
 $c = new Comentarios();
+
+if (count($_POST) >0 ) {
+		
+	$c->subirComentario($id_articulo,
+						$_POST['comentario']);
+
+}
+
 $comentarios = $c->getFromArticulo($id_articulo);
 
 $v = new VistaComentarios();

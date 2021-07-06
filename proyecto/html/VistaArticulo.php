@@ -33,6 +33,11 @@
 		justify-content: center;
 	}
 
+	form{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}	
 
 
 	</style>
@@ -48,6 +53,32 @@
 
 	<p> <?= $a['articulo']?> </p>
 	<?php } ?>
+
+	<br>
+
+	
+	<p>
+		<form method="post"> 
+
+			<input type="submit" name="Editar" value="Editar Articulo">
+
+		</form> 
+	</p>
+
+	<?php  $i = 0;
+	foreach ($this->com as $c) {
+		if ($i < 5){ ?>
+			<h4>	<?= $c['comentario'] ?> </h4>
+			<p>	<?= $c['fecha'] ?> </p>
+	<?php } } ?>
+
+	<p>
+		<form method="post">
+			
+			<input type="submit" name="Comentarios" value="Ver Comentarios">
+
+		</form>
+	</p>
 
 </body>
 </html>

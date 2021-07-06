@@ -71,6 +71,10 @@
 	</br>
 	<?php  } } ?>
 
+	<form method="post">
+			<p> <input type="submit" name="inicio" value="Volver al Inicio"> </p>
+	</form>
+
 
 </body>
 </html>
