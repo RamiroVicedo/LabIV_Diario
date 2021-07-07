@@ -1,5 +1,4 @@
-<!-- html/VistaLoginU.php -->
-
+<!-- html/VistaSignUp.php -->
 
 <!DOCTYPE html>
 <html>
@@ -56,14 +55,17 @@
 	
 		<form method="post" id="cuadrolog">
 		<p>
-			<input type="text" name="email" id="texto" /> <br>
+			<input type="text" name="nombre" id="texto" placeholder="Nombre" /> <br>
 		</p>
 		<p>
-			<input type="password" name="passwd" id="texto"> <br>
+			<input type="text" name="email" id="texto" placeholder="Email" /> <br>
+		</p>
+		<p>
+			<input type="password" name="passwd" id="texto" placeholder="Password"> <br>
 			<br>
 		</p>
 		<p>
-			<input type="submit" name="inicio" value="Iniciar Sesion"/>
+			<input type="submit" name="sign" value="Aceptar"/>
 		</p>
 		</form>
 
@@ -71,8 +73,7 @@
 
 		<form method="post">
 			<input type="submit" id="retorno" name="volver" value="Volver a Inicio">
-			<input type="submit" name="empleado" value="Empleados">
-			<input type="submit" name="sign" value="Signup">
+			<input type="submit" name="log" value="Login">
 		</form>
 	
 	

@@ -5,5 +5,6 @@
 class VistaArticulosCat extends View {
 
 	public $art;
+	public $cat;
 
 }

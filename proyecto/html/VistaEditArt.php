@@ -63,6 +63,10 @@
 	</form>
 
 	<form method="post">
+			<p> <input type="submit" name="volver" value="Volver al Articulo"> </p>
+	</form>
+
+	<form method="post">
 			<p> <input type="submit" name="inicio" value="Volver al Inicio"> </p>
 	</form>
 

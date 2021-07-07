@@ -14,16 +14,17 @@ $id_articulo = $_SESSION['articulo'][0]["id_articulo"];
 
 if (count($_POST) > 0) {
 
-	$string = "Editar Articulo";
+	if ($_POST['Inicio']){
 
-	if ($_POST['Editar'] == $string){
-	
+		header("Location: inicio.php");
+	}
+
+	if ($_POST['Editar']){
+
 		header("Location: editararticulo.php");
 	}
 
-	$string = "Ver Comentarios";
-
-	if($_POST['Comentarios'] == $string){
+	if ($_POST['Comentarios']){
 		header("Location: vercomentarios.php");
 	}
 }

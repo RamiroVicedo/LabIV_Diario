@@ -16,7 +16,7 @@ $a = new Articulos();
 
 if (count($_POST) > 0) {
 
-	if ($_POST['edit'] == "Aceptar") {
+	if ($_POST['edit']) {
 
 		if(is_null($_POST['titulo'])) die("error 1");
 
@@ -35,8 +35,12 @@ if (count($_POST) > 0) {
 		else die("error 3");
 	}
 
-	if ($_POST['inicio'] == "Volver al Inicio") {
+	if ($_POST['inicio']) {
 		header("Location: inicio.php");
+	}
+
+	if ($_POST['volver']) {
+		header("Location: verarticulo.php");
 	}
 	
 		

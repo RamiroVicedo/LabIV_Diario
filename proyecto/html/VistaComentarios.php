@@ -37,10 +37,17 @@
 
 	<br> <br>
 
+
+	<?php 	if(isset($_SESSION['logu']) or isset($_SESSION['loge']))	{ ?>
 	<form method="post">
 		<p><textarea name="comentario"></textarea></p>
 
 		<p><input type="submit" name="" value="Enviar"></p>
+	</form>
+	<?php 	} ?>
+
+	<form method="post">
+		<p><input type="submit" name="volver" value="Volver al Articulo"> </p>
 	</form>
 
 </body>

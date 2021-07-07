@@ -12,7 +12,7 @@ session_start();
 
 if (count($_POST) > 0) {
 
-	if ($_POST['subida'] == "Subir") {
+	if ($_POST['subida']) {
 		$a = new Articulos();
 
 		if(is_null($_POST['titulo'])) die("error 1");
@@ -24,16 +24,17 @@ if (count($_POST) > 0) {
 			$a->subirArticulo($_POST['titulo'], 
 								$_POST['categoria'], 
 								$_POST['articulo']);
-			$_SESSION['articulo'] = $a->getID($_POST['titulo'], 
+			$id_articulo = $a->getID($_POST['titulo'], 
 												$_POST['categoria'], 
 												$_POST['articulo']);
+			$_SESSION['articulo'] = $id_articulo;
 			header("Location: verarticulo.php");
 			
 		}
 		else die("error 3");
 	}
 
-	if ($_POST['inicio'] == "Volver al Inicio") {
+	if ($_POST['inicio']) {
 		header("Location: inicio.php");
 	}
 

@@ -10,6 +10,7 @@ require '../views/PaginaPrincipal.php';
 session_start();
 
 $a = new Articulos();
+$articulo = $a->getTodos();
 
 $c = new Categorias();
 $categoria = $c->getTodos();
@@ -20,11 +21,11 @@ if (count($_POST) > 0) {
 		header("Location: vercategorias.php");
 	}
 
-	if ($_POST['log'] == "Login") {
+	if ($_POST['log']) {
 		header("Location: loginusuario.php");
 	}
 
-	if ($_POST['logfuera'] == "Logout") {
+	if ($_POST['logfuera']) {
 		header("Location: logout.php");
 	}
 
@@ -47,12 +48,15 @@ if (count($_POST) > 0) {
 			header("Location: buscar.php");
 		}	
 	}
-	
+
+	if ($_POST['articulo']) {
+		$id_articulo = $a->getIDfromID($_POST['articulo']);
+		$_SESSION['articulo'] = $id_articulo;
+		header("Location: verarticulo.php");
+	}
 }
 
 else{
-
-	$articulo = $a->getTodos();
 
 	$v = new PaginaPrincipal();
 	$v->art = $articulo;

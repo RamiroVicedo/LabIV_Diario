@@ -76,9 +76,12 @@
 		<form method="post">
 			
 			<input type="submit" name="Comentarios" value="Ver Comentarios">
+			<input type="submit" name="Inicio" value="Volver al Inicio">
+
 
 		</form>
 	</p>
+
 
 </body>
 </html>

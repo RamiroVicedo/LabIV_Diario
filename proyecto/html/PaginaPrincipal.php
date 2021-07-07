@@ -50,9 +50,9 @@
 	}
 
 	#art{
-		margin-right: 650px;
-		margin-left: 650px;
- 	 	display: -webkit-box;
+		max-width: 1000px;
+		justify-content: center;
+ 	 	display: flex;
   		overflow: hidden;
   		-webkit-line-clamp: 3;
   		-webkit-box-orient: vertical;
@@ -158,10 +158,15 @@
 	foreach ($this->art as $a){
 		if ($i < 3) { ?>
 			<div class="articulo">
-			<h4> <?= $a['nombre'] ?> </h4>
-			<p> <?= $a['fecha']?> </p> 
-			<p>	<?= $a['categoria']?> </p> 
-			<p id="art" > <?= $a['articulo']?> </p> </div> 
+				<h4> <?= $a['nombre'] ?> </h4>
+				<p> <?= $a['fecha']?> </p> 
+				<p>	<?= $a['categoria']?> </p> 
+				<p id="art" > <?= $a['articulo']?> </p> 
+			</div> 
+			<p><form method="post"> 
+				<input type="hidden" name="articulo" value="<?= (int) $a['id_articulo']?>">
+				<input type="submit" name="" value="Leer" id="mas"> 
+			</form></p>
 			<br>  <br>
 	<?php $i++;} } ?>		
 	

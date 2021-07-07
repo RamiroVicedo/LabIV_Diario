@@ -15,7 +15,7 @@ $usuario = $u->getTodos();
 	
 if (count($_POST) > 0) {
 
-	if ($_POST['inicio'] == "Iniciar Sesion") {
+	if ($_POST['inicio']) {
 
 		$email = $_POST['email'];
 		$passwd = $_POST['passwd']; 
@@ -30,12 +30,16 @@ if (count($_POST) > 0) {
 		}	
 	}
 
-	if ($_POST['volver'] == "Volver a Inicio") {
+	if ($_POST['volver']) {
 		header("Location: inicio.php");
 	}
 
-	if ($_POST['empleado'] == "Empleados") {
+	if ($_POST['empleado']) {
 		header("Location: loginempleado.php");
+	}
+
+	if ($_POST['sign']) {
+		header("Location: signup.php");
 	}
 		
 }
