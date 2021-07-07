@@ -8,6 +8,30 @@
 
 	<style>
 
+	h1{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-style: italic;
+		max-width: 27.5%;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+	}
+
+	h2{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-style: italic;
+		max-width: 27.5%;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+	}
+
 	p{
 		display: flex;
 		align-items: center;
@@ -22,7 +46,7 @@
 		
 	#art{
 		width: 600px;
-		height: 600px;
+		height: 500px;
 		font-size: 17px;
 	}
 
@@ -30,6 +54,9 @@
 
 </head>
 <body>
+
+	<h1>Cromatico</h1>
+	<h2>Subida de Articulo</h2>
 
 	<form method="post"> 
 			<p> <textarea id="titulo" name="titulo" placeholder="Titulo" required></textarea>  <br> </p>

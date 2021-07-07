@@ -14,6 +14,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		font-style: italic;
+	}
+
+	h2{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-style: italic;
 	}
 
 	p{
@@ -24,21 +32,23 @@
 
 	#cuadrolog{
 		width: 500px ;
-		height: 200px;
-		margin-left: 37%;
-		margin-top: 15%;
+		height: 165px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10%;
 		border-style: solid;
 		border-width: 2px;
 		border-color: dimgrey;
 		background: lightblue ;
 	}
 
-	#cuadrosign{
-		display: hidden;
-	}
 
 	#retorno{
-		margin-left: 705px;
+		display: flex;
+		margin-left: auto;
+		margin-right: auto;
+		align-items: center;
+		margin-bottom: 5px;
 	}
 
 	#texto{
@@ -54,6 +64,7 @@
 
 	<h1> Cromatico </h1>
 	
+		<h2>Inicio de Sesion</h2>
 		<form method="post" id="cuadrolog">
 		<p>
 			<input type="text" name="email" id="texto" /> <br>
@@ -71,8 +82,8 @@
 
 		<form method="post">
 			<input type="submit" id="retorno" name="volver" value="Volver a Inicio">
-			<input type="submit" name="empleado" value="Empleados">
-			<input type="submit" name="sign" value="Signup">
+			<input type="submit" id="retorno" name="empleado" value="Empleados">
+			<input type="submit" id="retorno" name="sign" value="Signup">
 		</form>
 	
 	

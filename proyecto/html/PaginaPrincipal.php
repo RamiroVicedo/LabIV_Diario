@@ -9,58 +9,120 @@
 
 	<style>
 
+	body{
+		
+	}
+
 	h1{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		font-style: italic;
+		max-width: 27.5%;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
 	}
 
 	h2{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background: white;
 	}
 
 	h3{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background: white;
 	}
 
 	h4{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background: white;
 	}
 
 	p{
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background: white;
 	}
 
 	.articulo{
 		border-style: solid;
 		border-color: dimgrey;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+		width: 27%;
+		border: 2px solid #c4cebc;
+		border-right: none;
+  		border-left: none;
+		padding: 5px;
+		background: white;
+		border-radius: 5px;
 	}
 
 	#nombre{
 		background: white;
-		border: hidden;
+		border: none;
+		border-radius: 5px;
+	}
+
+	#artnombre{
+		font-style: italic;
+		border: 1px solid #c4cebc;
+		border-right: none;
+		border-left: none;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+		max-width: 60%;
+		padding: 5px;
+	}
+
+	#artcat{
+		border: 1px solid #c4cebc;
+		border-right: none;
+		border-left: none;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+		max-width: 18%;
+		padding: 2px;
+	}
+
+	#artfecha{
+		font-size: small;
+		border: 1px solid #c4cebc;
+		border-right: none;
+		border-left: none;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+		max-width: 15%;
+		padding: 2px;
 	}
 
 	#art{
-		max-width: 1000px;
-		justify-content: center;
- 	 	display: flex;
-  		overflow: hidden;
-  		-webkit-line-clamp: 3;
-  		-webkit-box-orient: vertical;
+		display: -webkit-box;
+	  	overflow: hidden;
+	  	-webkit-line-clamp: 3;
+	  	-webkit-box-orient: vertical;
 
 	}
 
 	#mas{
-		background: white;
+		background: inherit;
 		border: hidden;
 	}
 
@@ -69,12 +131,13 @@
 	}
 
 	#botonlog{
-		margin-left: 1350px;
-		margin-top: none;
-		margin-bottom: none;
 		background: white;
-		border: hidden;
-		justify-items: right;
+		border: none;
+		display: flex;
+		text-align: left;
+		text-align: justify-all;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	#botonlog:hover{
@@ -82,9 +145,45 @@
 	}
 
 	.usuario{
-		display: unset;
-		margin-left: 1350px;
-		justify-items: right;
+		display: flex;
+		text-align: left;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+		width: 27%;
+	}
+
+	.categorias{
+		border-style: solid;
+		border-color: dimgrey;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+		width: 27%;
+		border: 1px solid #c4cebc;
+		border-right: none;
+		border-left: none;
+		padding: 5px;
+		color: white;
+		border-radius: 5px;
+	}
+
+	.barrabusc{
+		border-style: solid;
+		border-color: dimgrey;
+		text-align: center;
+		text-align: justify-all;
+		margin-left: auto;
+  		margin-right: auto;
+		width: 27%;
+		border: 1px solid #c4cebc;
+		border-right: none;
+		border-left: none;
+		border-top: none;
+		padding: 5px;
+		color: white;
+		border-radius: 5px;
 	}
 
 	</style>
@@ -94,13 +193,40 @@
 
 	<h1> Cromatico </h1>
 
+
+	<div class="barrasup">
+	<!--Categorias como boton que dirigen a su pagina especifica-->
+	<div class="categorias">
+	<form method="post">
+	<?php 
+	$i = 0;
+	foreach ($this->cat as $c) { 
+		if ($i < 5) { ?>
+			<input type="submit" id="mas" name="categoria" value="<?= $c['nombre']?>"> &nbsp;&nbsp;&nbsp;&nbsp;
+	<?php $i++;} } ?>
+			<input type="submit" id="mas" name="otras" value="+">;
+	</form>
+	</div>
+
+	<!--Barra de busqueda-->
+	<div class="barrabusc">
+		<form method="post">
+			<input type="text" name="termino" placeholder="Buscar">
+			<input type="submit" id="mas" name="buscar" value="&#x1f50d">
+		</form>
+	</div>
+	</div>
+
+	<br>
+
+
 	<!--Login-->
 	<?php if (isset($_SESSION['logu']) || isset($_SESSION['loge'])) { ?>
-
 	<div class="usuario"> <button id="nombre"> <?= $_SESSION['nombre']?> </button> </div>
 	
+	<div class="usuario">
 	<form method="post"> 
-		<div class="usuario"> <input type="submit" id="salir" name="logfuera" value="Logout"> </div> 
+		<input type="submit" id="salir" name="logfuera" value="Logout"> 
 	</form>
 	
 	<?php } else {?>
@@ -116,40 +242,13 @@
 	<?php if (isset($_SESSION['loge'])) { ?>
 	
 	<form method="post"> 
-		<div class="usuario">
 			<input type="submit" name="subir" value="Subir Articulo">
-		</div> 
 	</form>
+	</div> 
 
 	<?php } ?>
 
-
-	<!--Categorias como boton que dirigen a su pagina especifica-->
-	<h3>
-	<?php 
-	$i = 0;
-	foreach ($this->cat as $c) { 
-		if ($i < 5) { ?>
-		<form method="post">
-			<input type="submit" id="mas" name="categoria" value="<?= $c['nombre']?>"> &nbsp;&nbsp;&nbsp;&nbsp;
-		</form>
-	<?php $i++;} } ?>
-
-		<form method="post">
-			<input type="submit" id="mas" name="otras" value="+"> &nbsp;&nbsp;&nbsp;&nbsp;
-		</form>
-	</h3>
-
-
-	<!--Barra de busqueda-->
-	<h3>
-		<form method="post">
-			<input type="text" name="termino" placeholder="Buscar">
-			<input type="submit" id="mas" name="buscar" value="&#x1f50d">
-		</form>
-	</h3>
-
-	<br> <br> <br>
+	<br>
 
 	
 	<!--Imprime los tres articulos mas recientes-->
@@ -158,16 +257,16 @@
 	foreach ($this->art as $a){
 		if ($i < 3) { ?>
 			<div class="articulo">
-				<h4> <?= $a['nombre'] ?> </h4>
-				<p> <?= $a['fecha']?> </p> 
-				<p>	<?= $a['categoria']?> </p> 
+				<h2 id="artnombre"> <?= $a['nombre'] ?> </h2> 
+				<p id="artcat">	<?= $a['categoria']?> </p>
+				<p id="artfecha"> <?= $a['fecha']?> </p> 
 				<p id="art" > <?= $a['articulo']?> </p> 
-			</div> 
 			<p><form method="post"> 
 				<input type="hidden" name="articulo" value="<?= (int) $a['id_articulo']?>">
-				<input type="submit" name="" value="Leer" id="mas"> 
+				<input type="submit" name="" value="Leer..." id="mas"> 
 			</form></p>
-			<br>  <br>
+			</div> 
+			<br> 
 	<?php $i++;} } ?>		
 	
 

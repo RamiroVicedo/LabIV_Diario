@@ -20,6 +20,11 @@ if (count($_POST) > 0) {
 	if ($_POST['inicio']) {
 		header("Location: cromatico");
 	}
+
+	if ($_POST['articulo']) {
+		$id = $_POST['articulo'];
+		header("Location: ver-articulo-$id");
+	}
 }
 
 else{

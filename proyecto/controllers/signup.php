@@ -27,7 +27,7 @@ if (count($_POST) > 0) {
 
 		if (isset($_POST['passwd'])) {
 			$password = sha1($_POST['passwd']);
-			$u->signUp($_POST['nombre'], 
+			$usuario = $u->signUp($_POST['nombre'], 
 						$_POST['email'], 
 						$password);
 			$_SESSION['nombre'] = $_POST['nombre'];

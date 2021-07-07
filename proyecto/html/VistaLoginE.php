@@ -12,6 +12,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		font-style: italic;
+	}
+
+	h2{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-style: italic;
 	}
 
 	p{
@@ -20,19 +28,25 @@
 		justify-content: center;
 	}
 
-	#cuadro{
+	#cuadrolog{
 		width: 500px ;
-		height: 200px;
-		margin-left: 37%;
-		margin-top: 15%;
+		height: 165px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10%;
 		border-style: solid;
 		border-width: 2px;
 		border-color: dimgrey;
 		background: lightblue ;
 	}
 
+
 	#retorno{
-		margin-left: 705px;
+		display: flex;
+		margin-left: auto;
+		margin-right: auto;
+		align-items: center;
+		margin-bottom: 5px;
 	}
 
 	#texto{
@@ -48,7 +62,8 @@
 
 	<h1> Cromatico </h1>
 	
-		<form action="" method="post" id="cuadro">
+		<h2>Empleados</h2>
+		<form action="" method="post" id="cuadrolog">
 		<p>
 			<input type="text" name="email" id="texto" /> <br>
 		</p>
@@ -65,7 +80,7 @@
 
 		<form method="post">
 			<input type="submit" id="retorno" name="volver" value="Volver a Inicio">
-			<input type="submit" name="usuario" value="Usuarios">
+			<input type="submit" id="retorno" name="usuario" value="Usuarios">
 		</form>
 	
 	

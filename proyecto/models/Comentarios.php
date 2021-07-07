@@ -18,6 +18,8 @@ class Comentarios extends Model {
 	} 
 
 	public function subirComentario($id_articulo, $comentario){
+		$comentario = $this->db->escape($comentario);
+		$comentario = $this->db->escapeWildcards($comentario);
 
 		$this->db->query("INSERT INTO comentarios
 							(comentario, id_articulo, fecha) VALUES

@@ -20,6 +20,8 @@ class Usuarios extends Model {
 	}
 
 	public function logIn($email, $password){
+		$password = $this->db->escape($password);
+
 		$this->db->query("SELECT *
 							FROM usuarios
 							WHERE email = '$email'
@@ -30,7 +32,11 @@ class Usuarios extends Model {
 	}
 
 	public function signUp($nombre, $email, $password){
-		if (!$this->emailExistente($email)) die("error usuarios 1");
+		$pattern = "/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/";
+		$check = preg_match($pattern, $email);
+		if ($check == 0) die("error usuarios 1");
+
+		if (!$this->emailExistente($email)) die("error usuarios 2");
 
 		$this->db->query("INSERT INTO usuarios
 							(nombre, email, password) VALUES

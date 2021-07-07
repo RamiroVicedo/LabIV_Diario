@@ -24,7 +24,7 @@ if (count($_POST) > 0) {
 
 		if(isset($passwd)) {
 			$empleado = $e->logIn($email, $passwd);
-			if(!is_null($empleado)){
+			if(!is_null($empleado[0]['id_empleado'])){
 				$nombre = $empleado[0];
 				$_SESSION['loge'] = true;
 				$_SESSION['nombre'] = $nombre['nombre'];

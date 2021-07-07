@@ -11,6 +11,8 @@ class Empleados extends Model {
 	} 
 
 	public function logIn($email, $password){
+		$password = $this->db->escape($password);
+
 		$this->db->query("SELECT *
 							FROM empleados
 							WHERE email = '$email'

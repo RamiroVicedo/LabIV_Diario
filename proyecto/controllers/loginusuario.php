@@ -24,11 +24,10 @@ if (count($_POST) > 0) {
 
 		if(isset($passwd)) {
 			$usuario = $u->logIn($email, $passwd);
-			if(!is_null($usuario)){
+			if(!is_null($usuario[0]['id_usuario'])){
 				$nombre = $usuario[0];
 				$_SESSION['logu'] = true;
 				$_SESSION['nombre'] = $nombre['nombre'];
-				var_dump($usuario);
 				header("Location: cromatico");
 			}
 			else header("Location: login");

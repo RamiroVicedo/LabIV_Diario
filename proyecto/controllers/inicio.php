@@ -46,7 +46,9 @@ if (count($_POST) > 0) {
 		if ($_POST['termino']) {
 			$termino = $_POST['termino'];
 			header("Location: buscar-$termino");
-		}	
+
+		}
+		else header("Location: inicio.php");
 	}
 
 	if ($_POST['articulo']) {

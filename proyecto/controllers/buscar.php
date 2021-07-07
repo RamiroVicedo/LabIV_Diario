@@ -17,6 +17,20 @@ if (count($_POST) > 0) {
 		header("Location: cromatico");
 	}
 
+	if ($_POST['articulo']) {
+		$id = $_POST['articulo'];
+		header("Location: ver-articulo-$id");
+	}
+
+	if ($_POST['buscar']) {
+		if ($_POST['termino']) {
+			$termino = $_POST['termino'];
+			header("Location: buscar-$termino");
+
+		}
+		else header("Location: inicio.php");
+	}
+
 }
 
 $a = new Articulos();

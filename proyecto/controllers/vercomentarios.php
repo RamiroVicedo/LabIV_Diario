@@ -4,6 +4,7 @@
 
 require '../fw/fw.php';
 require '../models/Comentarios.php';
+require '../models/Articulos.php';
 require '../views/VistaComentarios.php';
 
 session_start();
@@ -28,6 +29,10 @@ if (count($_POST) >0 ) {
 
 $comentarios = $c->getFromArticulo($id_articulo);
 
+$a = new Articulos();
+$articulo = $a->getArticulo($id_articulo);
+
 $v = new VistaComentarios();
 $v->com = $comentarios;
+$v->art = $articulo;
 $v->render();

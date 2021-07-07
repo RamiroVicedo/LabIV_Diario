@@ -23,32 +23,41 @@ class Articulos extends Model {
 	}
 
 	public function getID($nombre, $categoria, $texto){
-		$this->db->query("SELECT id_articulo
+		$nombre = $this->db->escape($nombre);
+		$texto = $this->db->escape($texto);
+
+		$this->db->query("SELECT id_articulo, fecha
 							FROM articulos
 							WHERE nombre= '$nombre' 
 							AND articulo= '$texto' 
 							AND id_categoria= '$categoria' 
+							ORDER BY fecha DESC
 							LIMIT 1");
 		return $this->db->fetchAll();
 	}
 
 	public function getFromCategoria($id_categoria){
-			$this->db->query("SELECT nombre, fecha, articulo
+			$this->db->query("SELECT nombre, fecha, articulo, id_articulo
 								FROM articulos WHERE id_categoria=" . $id_categoria);
 			return $this->db->fetchAll();
 	}	
 
 	public function getBusquedaNombre($termino){
-			$this->db->query("SELECT a.nombre nombre, a.fecha, a.articulo, a.id_articulo, c.nombre categoria
-								FROM articulos a 
-								LEFT JOIN categorias c ON 
+		if (!isset($termino)) die("error busqueda articulos 1");
+
+		$this->db->query("SELECT a.nombre nombre, a.fecha, a.articulo, a.id_articulo, c.nombre categoria, a.id_articulo
+							FROM articulos a 
+							LEFT JOIN categorias c ON 
 										c.id_categoria = a.id_categoria
-								WHERE a.nombre LIKE '%$termino%'");
-			return $this->db->fetchAll();
+							WHERE a.nombre LIKE '%$termino%'");
+		return $this->db->fetchAll();
 	}	
 
 	public function getBusquedaDescripcion($termino){
-			$this->db->query("SELECT a.nombre nombre, a.fecha, a.articulo, a.id_articulo, c.nombre categoria
+
+		if (!isset($termino)) die("error busqueda articulos 2");
+
+			$this->db->query("SELECT a.nombre nombre, a.fecha, a.articulo, a.id_articulo, c.nombre categoria, a.id_articulo
 								FROM articulos a 
 								LEFT JOIN categorias c ON 
 										c.id_categoria = a.id_categoria
@@ -57,6 +66,8 @@ class Articulos extends Model {
 	}
 
 	public function subirArticulo($nombre, $categoria, $texto){
+		$nombre = $this->db->escape($nombre);
+		$texto = $this->db->escape($texto);
 
 		$this->db->query("INSERT INTO articulos
 						 (nombre, id_categoria, articulo, fecha) VALUES
@@ -65,6 +76,8 @@ class Articulos extends Model {
 	}
 
 	public function editarArticulo($id, $nombre, $categoria, $texto){
+		$nombre = $this->db->escape($nombre);
+		$texto = $this->db->escape($texto);
 
 		$this->db->query("UPDATE articulos
 							SET nombre = '$nombre'
@@ -83,6 +96,14 @@ class Articulos extends Model {
 
 	}
 
+	public function salvarTermino($termino){
+
+		$termino = $this->db->escapeWildcards($termino);
+
+		$termino = '"' . $termino . '"';
+
+		return $termino;
+	}
 
 }
 
