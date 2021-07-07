@@ -10,22 +10,22 @@ require '../views/VistaEditArt.php';
 
 session_start();
 
-$id_articulo = $_SESSION['articulo'][0]["id_articulo"];
+$id_articulo = $_GET['id'];
 
 if (count($_POST) > 0) {
 
 	if ($_POST['Inicio']){
 
-		header("Location: inicio.php");
+		header("Location: cromatico");
 	}
 
 	if ($_POST['Editar']){
 
-		header("Location: editararticulo.php");
+		header("Location: editar-articulo-$id_articulo");
 	}
 
 	if ($_POST['Comentarios']){
-		header("Location: vercomentarios.php");
+		header("Location: comentarios-articulo-$id_articulo");
 	}
 }
 

@@ -18,41 +18,40 @@ $categoria = $c->getTodos();
 if (count($_POST) > 0) {
 	
 	if ($_POST['otras']) {
-		header("Location: vercategorias.php");
+		header("Location: ver-categorias");
 	}
 
 	if ($_POST['log']) {
-		header("Location: loginusuario.php");
+		header("Location: login");
 	}
 
 	if ($_POST['logfuera']) {
-		header("Location: logout.php");
+		header("Location: logout");
 	}
 
 	if ($_POST['categoria']) {
 		foreach ($categoria as $c) {
 			if ($c['nombre'] == $_POST['categoria']) {
-				$_SESSION['categoria'] = $c['id_categoria'];
-				header("Location: verarticulocategoria.php");
+				$id = $c['id_categoria'];
+				header("Location: ver-articulo-por-categoria-$id");
 			}
 		}
 	}
 
 	if ($_POST['subir']) {
-		header("Location: subirarticulo.php");
+		header("Location: subir-articulo");
 	}
 
 	if ($_POST['buscar']) {
 		if ($_POST['termino']) {
-			$_SESSION['termino'] = $_POST['termino'];
-			header("Location: buscar.php");
+			$termino = $_POST['termino'];
+			header("Location: buscar-$termino");
 		}	
 	}
 
 	if ($_POST['articulo']) {
-		$id_articulo = $a->getIDfromID($_POST['articulo']);
-		$_SESSION['articulo'] = $id_articulo;
-		header("Location: verarticulo.php");
+		$id = $_POST['articulo'];
+		header("Location: ver-articulo-$id");
 	}
 }
 

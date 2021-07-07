@@ -9,12 +9,12 @@ require '../views/VistaBusqueda.php';
 
 session_start();
 
-$termino = $_SESSION['termino'];
+$termino = $_GET['termino'];
 
 if (count($_POST) > 0) {
 
 	if ($_POST['inicio']) {
-		header("Location: inicio.php");
+		header("Location: cromatico");
 	}
 
 }

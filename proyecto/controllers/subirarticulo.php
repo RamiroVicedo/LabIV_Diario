@@ -27,15 +27,15 @@ if (count($_POST) > 0) {
 			$id_articulo = $a->getID($_POST['titulo'], 
 												$_POST['categoria'], 
 												$_POST['articulo']);
-			$_SESSION['articulo'] = $id_articulo;
-			header("Location: verarticulo.php");
+			$id = $id_articulo[0]["id_articulo"];
+			header("Location: ver-articulo-$id");
 			
 		}
 		else die("error 3");
 	}
 
 	if ($_POST['inicio']) {
-		header("Location: inicio.php");
+		header("Location: cromatico");
 	}
 
 		

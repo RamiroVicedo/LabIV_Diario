@@ -10,5 +10,15 @@ class Empleados extends Model {
 			return $this->db->fetchAll();
 	} 
 
+	public function logIn($email, $password){
+		$this->db->query("SELECT *
+							FROM empleados
+							WHERE email = '$email'
+							AND password = '$password'
+							LIMIT 1");
+		
+		return $this->db->fetchAll();
+	}
+
 
 }

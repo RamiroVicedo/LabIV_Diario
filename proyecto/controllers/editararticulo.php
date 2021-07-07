@@ -10,7 +10,7 @@ require '../views/VistaArticulo.php';
 
 session_start();
 
-$id_articulo = $_SESSION['articulo'][0]["id_articulo"];
+$id_articulo = $_GET['id'];
 
 $a = new Articulos();
 
@@ -29,18 +29,18 @@ if (count($_POST) > 0) {
 								$_POST['categoria'], 
 								$_POST['articulo']);
 
-			header("Location: verarticulo.php");
+			header("Location: ver-articulo-$id_articulo");
 			
 		}
 		else die("error 3");
 	}
 
 	if ($_POST['inicio']) {
-		header("Location: inicio.php");
+		header("Location: cromatico");
 	}
 
 	if ($_POST['volver']) {
-		header("Location: verarticulo.php");
+		header("Location: ver-articulo-$id_articulo");
 	}
 	
 		

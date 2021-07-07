@@ -56,7 +56,14 @@
 
 	<br>
 
-	
+	<?php  $i = 0;
+	foreach ($this->com as $c) {
+		if ($i < 3){ ?>
+			<h4>	<?= $c['comentario'] ?> </h4>
+			<p>	<?= $c['fecha'] ?> </p>
+	<?php } } ?>
+
+	<?php if (isset($_SESSION['loge'])) { ?>
 	<p>
 		<form method="post"> 
 
@@ -64,20 +71,20 @@
 
 		</form> 
 	</p>
-
-	<?php  $i = 0;
-	foreach ($this->com as $c) {
-		if ($i < 5){ ?>
-			<h4>	<?= $c['comentario'] ?> </h4>
-			<p>	<?= $c['fecha'] ?> </p>
-	<?php } } ?>
+	<?php } ?>
+	
 
 	<p>
 		<form method="post">
 			
-			<input type="submit" name="Comentarios" value="Ver Comentarios">
-			<input type="submit" name="Inicio" value="Volver al Inicio">
+			<input type="submit" name="Comentarios" value="Ver Todos los Comentarios">
 
+		</form>
+	</p>
+	<p>
+		<form method="post">
+
+			<input type="submit" name="Inicio" value="Volver al Inicio">
 
 		</form>
 	</p>

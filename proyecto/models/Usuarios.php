@@ -19,6 +19,16 @@ class Usuarios extends Model {
 		return true;
 	}
 
+	public function logIn($email, $password){
+		$this->db->query("SELECT *
+							FROM usuarios
+							WHERE email = '$email'
+							AND password = '$password'
+							LIMIT 1");
+		
+		return $this->db->fetchAll();
+	}
+
 	public function signUp($nombre, $email, $password){
 		if (!$this->emailExistente($email)) die("error usuarios 1");
 

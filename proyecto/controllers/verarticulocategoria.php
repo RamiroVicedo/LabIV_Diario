@@ -9,16 +9,16 @@ require '../views/VistaArticulosCat.php';
 
 session_start();
 
-$id_categoria = $_SESSION['categoria'];
+$id_categoria = $_GET['id'];
 
 if (count($_POST) > 0) {
 	
 	if ($_POST['categorias']) {
-		header("Location: vercategorias.php");
+		header("Location: ver-categorias");
 	}
 
 	if ($_POST['inicio']) {
-		header("Location: inicio.php");
+		header("Location: cromatico");
 	}
 }
 

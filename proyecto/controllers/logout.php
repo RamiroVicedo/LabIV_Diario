@@ -6,5 +6,5 @@
 	unset($_SESSION['loge']);
 	unset($_SESSION['nombre']);
 
-	header("Location: inicio.php");
+	header("Location: cromatico");
 

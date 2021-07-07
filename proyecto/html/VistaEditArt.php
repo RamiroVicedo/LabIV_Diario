@@ -58,7 +58,7 @@
 			<p> <textarea id="art" name="articulo" placeholder="Articulo" required><?= $a['articulo'] ?></textarea>  <br> </p>
 			<?php  ?>
 
-			<p> <input type="submit" value="Aceptar"> </p>
+			<p> <input type="submit" name="edit" value="Aceptar"> </p>
 			
 	</form>
 

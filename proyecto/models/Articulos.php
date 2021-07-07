@@ -32,14 +32,6 @@ class Articulos extends Model {
 		return $this->db->fetchAll();
 	}
 
-	public function getIDfromID($id){
-		$this->db->query("SELECT id_articulo
-							FROM articulos
-							WHERE id_articulo= '$id' 
-							LIMIT 1");
-		return $this->db->fetchAll();
-	}
-
 	public function getFromCategoria($id_categoria){
 			$this->db->query("SELECT nombre, fecha, articulo
 								FROM articulos WHERE id_categoria=" . $id_categoria);
